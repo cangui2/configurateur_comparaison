@@ -40,7 +40,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    print(dataConfigurations);
+    //print(dataConfigurations);
     return MaterialApp(
       title: "Test App",
       home: Scaffold(
@@ -67,7 +67,8 @@ class _MyAppState extends State<MyApp> {
                           SizedBox(
                             width: 400.0,
                             height: MediaQuery.of(context).size.height,
-                            child: StockComparaison(dataConfigurations),
+                            child: StockComparaison(
+                                dataConfiguration: dataConfigurations),
                           )
                         ],
                       )
@@ -78,12 +79,14 @@ class _MyAppState extends State<MyApp> {
 }
 
 Future getData(String para1) async {
-  print("get f=data");
+  print("get f=data ddddd");
 
   var url = Uri.parse(
       'https://dev.merlo-ch.com/configurateur_offre/end_config/api.php?id_conf=$para1');
   http.Response response = await http.get(url);
-  var data = jsonDecode(response.body);
+  final  data = jsonDecode(response.body) as Map;
+  print(data['stock'].length);
+
 //print(data['configurateur']['option']);
   return data;
 }

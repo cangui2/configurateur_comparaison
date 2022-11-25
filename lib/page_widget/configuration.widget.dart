@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:html/parser.dart';
 
-
 String _parseHtmlString(String htmlString) {
-final document = parse(htmlString);
-final String parsedString = parse(document.body!.text).documentElement!.text;
+  final document = parse(htmlString);
+  final String parsedString = parse(document.body!.text).documentElement!.text;
 
-return parsedString;
+  return parsedString;
 }
 
 class ConfigurationWidget extends StatefulWidget {
@@ -37,6 +36,7 @@ class _ConfigurationWidgetState extends State<ConfigurationWidget> {
                   ),
                   itemCount: 1,
                   itemBuilder: (BuildContext context, int index) {
+                    print(snapshot.data);
                     var img =
                         snapshot.data['configurateur']['gamme'].toLowerCase();
                     return Column(
@@ -88,13 +88,12 @@ class _ConfigurationWidgetState extends State<ConfigurationWidget> {
                                 )))),
                           ],
                         ),
-                         const Divider(
+                        const Divider(
                           color: Colors.black,
                           height: 0,
                           indent: 0,
                           thickness: 2,
                         ),
-                        
                         Row(
                           children: [
                             Expanded(
@@ -122,15 +121,17 @@ class _ConfigurationWidgetState extends State<ConfigurationWidget> {
                           thickness: 2,
                         ),
                         const SizedBox(
-                        height: 10,
+                          height: 10,
                         ),
                         snapshot.data['configurateur']['options']
                                     ['Intérieur'] !=
                                 null
                             ? Row(
-                                children: const [Text("Intérieur",style: TextStyle(
-                                                  fontFamily: "Forza",
-                                                  fontSize: 18))],
+                                children: const [
+                                  Text("Intérieur",
+                                      style: TextStyle(
+                                          fontFamily: "Forza", fontSize: 18))
+                                ],
                               )
                             : const Divider(
                                 color: Colors.black,
@@ -150,9 +151,12 @@ class _ConfigurationWidgetState extends State<ConfigurationWidget> {
                                         flex: 1,
                                         child: Container(
                                             margin: const EdgeInsets.all(5.0),
-                                            child: Text(
-                                              item['lib'],
-                                              style: GoogleFonts.roboto( textStyle: const TextStyle(color: Color(0xffb5c7a99), fontSize: 14))))),
+                                            child: Text(item['lib'],
+                                                style: GoogleFonts.roboto(
+                                                    textStyle: const TextStyle(
+                                                        color:
+                                                            Color(0xffb5c7a99),
+                                                        fontSize: 14))))),
                                 ],
                               )
                             : const Divider(
@@ -166,9 +170,9 @@ class _ConfigurationWidgetState extends State<ConfigurationWidget> {
                                 null
                             ? Row(
                                 children: const [
-                                  Text("Hydraulique / Eléctrique",style: TextStyle(
-                                                  fontFamily: "Forza",
-                                                  fontSize: 18))
+                                  Text("Hydraulique / Eléctrique",
+                                      style: TextStyle(
+                                          fontFamily: "Forza", fontSize: 18))
                                 ],
                               )
                             : const Divider(
@@ -189,9 +193,12 @@ class _ConfigurationWidgetState extends State<ConfigurationWidget> {
                                         flex: 1,
                                         child: Container(
                                             margin: const EdgeInsets.all(5.0),
-                                            child: Text(
-                                              item['lib'],
-                                              style: GoogleFonts.roboto( textStyle: const TextStyle(color: Color(0xffb5c7a99), fontSize: 14))))),
+                                            child: Text(item['lib'],
+                                                style: GoogleFonts.roboto(
+                                                    textStyle: const TextStyle(
+                                                        color:
+                                                            Color(0xffb5c7a99),
+                                                        fontSize: 14))))),
                                 ],
                               )
                             : const Divider(
@@ -203,9 +210,11 @@ class _ConfigurationWidgetState extends State<ConfigurationWidget> {
                         snapshot.data['configurateur']['options']['Attelage'] !=
                                 null
                             ? Row(
-                                children: const [Text("Attelage",style: TextStyle(
-                                                  fontFamily: "Forza",
-                                                  fontSize: 18))],
+                                children: const [
+                                  Text("Attelage",
+                                      style: TextStyle(
+                                          fontFamily: "Forza", fontSize: 18))
+                                ],
                               )
                             : const Divider(
                                 color: Colors.black,
@@ -224,9 +233,12 @@ class _ConfigurationWidgetState extends State<ConfigurationWidget> {
                                         flex: 1,
                                         child: Container(
                                             margin: const EdgeInsets.all(5.0),
-                                            child: Text(
-                                              item['lib'],
-                                              style: GoogleFonts.roboto( textStyle: const TextStyle(color: Color(0xffb5c7a99), fontSize: 14))))),
+                                            child: Text(item['lib'],
+                                                style: GoogleFonts.roboto(
+                                                    textStyle: const TextStyle(
+                                                        color:
+                                                            Color(0xffb5c7a99),
+                                                        fontSize: 14))))),
                                 ],
                               )
                             : const Divider(
@@ -238,9 +250,11 @@ class _ConfigurationWidgetState extends State<ConfigurationWidget> {
                         snapshot.data['configurateur']['options']['Autres'] !=
                                 null
                             ? Row(
-                                children: const [Text("Autres",style: TextStyle(
-                                                  fontFamily: "Forza",
-                                                  fontSize: 18))],
+                                children: const [
+                                  Text("Autres",
+                                      style: TextStyle(
+                                          fontFamily: "Forza", fontSize: 18))
+                                ],
                               )
                             : const Divider(
                                 color: Colors.black,
@@ -258,13 +272,17 @@ class _ConfigurationWidgetState extends State<ConfigurationWidget> {
                                     Expanded(
                                         flex: 1,
                                         child: Container(
-                                            margin: const EdgeInsets.all(10),
-                                            child: 
-                                            RichText(text:  TextSpan(
-                                              text:item['lib'],
-                                             style: GoogleFonts.roboto( textStyle: const TextStyle(color: Color(0xffb5c7a99), fontSize: 14)))),
-                                            
-                                           )),
+                                          margin: const EdgeInsets.all(10),
+                                          child: RichText(
+                                              text: TextSpan(
+                                                  text: item['lib'],
+                                                  style: GoogleFonts.roboto(
+                                                      textStyle:
+                                                          const TextStyle(
+                                                              color: Color(
+                                                                  0xffb5c7a99),
+                                                              fontSize: 14)))),
+                                        )),
                                 ],
                               )
                             : const Divider(
@@ -277,9 +295,11 @@ class _ConfigurationWidgetState extends State<ConfigurationWidget> {
                                     ['Pneumatiques'] !=
                                 null
                             ? Row(
-                                children: const [Text("Pneumatiques",style: TextStyle(
-                                                  fontFamily: "Forza",
-                                                  fontSize: 18))],
+                                children: const [
+                                  Text("Pneumatiques",
+                                      style: TextStyle(
+                                          fontFamily: "Forza", fontSize: 18))
+                                ],
                               )
                             : const Divider(
                                 color: Colors.black,
@@ -299,9 +319,12 @@ class _ConfigurationWidgetState extends State<ConfigurationWidget> {
                                         flex: 1,
                                         child: Container(
                                             margin: const EdgeInsets.all(5.0),
-                                            child: Text(
-                                              item['lib'],
-                                              style: GoogleFonts.roboto( textStyle: const TextStyle(color: Color(0xffb5c7a99), fontSize: 14))))),
+                                            child: Text(item['lib'],
+                                                style: GoogleFonts.roboto(
+                                                    textStyle: const TextStyle(
+                                                        color:
+                                                            Color(0xffb5c7a99),
+                                                        fontSize: 14))))),
                                 ],
                               )
                             : const Divider(
@@ -314,9 +337,11 @@ class _ConfigurationWidgetState extends State<ConfigurationWidget> {
                                     ['Pneumatiques secours'] !=
                                 null
                             ? Row(
-                                children: const [Text("Pneumatiques secours",style: TextStyle(
-                                                  fontFamily: "Forza",
-                                                  fontSize: 18))],
+                                children: const [
+                                  Text("Pneumatiques secours",
+                                      style: TextStyle(
+                                          fontFamily: "Forza", fontSize: 18))
+                                ],
                               )
                             : const Divider(
                                 color: Colors.black,
@@ -336,9 +361,12 @@ class _ConfigurationWidgetState extends State<ConfigurationWidget> {
                                         flex: 1,
                                         child: Container(
                                             margin: const EdgeInsets.all(5.0),
-                                            child: Text(
-                                              item['lib'],
-                                              style: GoogleFonts.roboto( textStyle: const TextStyle(color: Color(0xffb5c7a99), fontSize: 14))))),
+                                            child: Text(item['lib'],
+                                                style: GoogleFonts.roboto(
+                                                    textStyle: const TextStyle(
+                                                        color:
+                                                            Color(0xffb5c7a99),
+                                                        fontSize: 14))))),
                                 ],
                               )
                             : const Divider(
@@ -350,9 +378,11 @@ class _ConfigurationWidgetState extends State<ConfigurationWidget> {
                         snapshot.data['configurateur']['options']['Fourches'] !=
                                 null
                             ? Row(
-                                children: const [Text("Fourches",style: TextStyle(
-                                                  fontFamily: "Forza",
-                                                  fontSize: 18))],
+                                children: const [
+                                  Text("Fourches",
+                                      style: TextStyle(
+                                          fontFamily: "Forza", fontSize: 18))
+                                ],
                               )
                             : const Divider(
                                 color: Colors.black,
@@ -371,9 +401,12 @@ class _ConfigurationWidgetState extends State<ConfigurationWidget> {
                                         flex: 1,
                                         child: Container(
                                             margin: const EdgeInsets.all(10),
-                                            child: Text(
-                                              item['lib'],
-                                             style: GoogleFonts.roboto( textStyle: const TextStyle(color: Color(0xffb5c7a99), fontSize: 14))))),
+                                            child: Text(item['lib'],
+                                                style: GoogleFonts.roboto(
+                                                    textStyle: const TextStyle(
+                                                        color:
+                                                            Color(0xffb5c7a99),
+                                                        fontSize: 14))))),
                                 ],
                               )
                             : const Divider(
@@ -385,9 +418,11 @@ class _ConfigurationWidgetState extends State<ConfigurationWidget> {
                         snapshot.data['configurateur']['options']['Godets'] !=
                                 null
                             ? Row(
-                                children: const [Text("Godets",style: TextStyle(
-                                                  fontFamily: "Forza",
-                                                  fontSize: 18))],
+                                children: const [
+                                  Text("Godets",
+                                      style: TextStyle(
+                                          fontFamily: "Forza", fontSize: 18))
+                                ],
                               )
                             : const Divider(
                                 color: Colors.black,
@@ -406,9 +441,12 @@ class _ConfigurationWidgetState extends State<ConfigurationWidget> {
                                         flex: 1,
                                         child: Container(
                                             margin: const EdgeInsets.all(5.0),
-                                            child: Text(
-                                              item['lib'],
-                                              style: GoogleFonts.roboto( textStyle: const TextStyle(color: Color(0xffb5c7a99), fontSize: 14))))),
+                                            child: Text(item['lib'],
+                                                style: GoogleFonts.roboto(
+                                                    textStyle: const TextStyle(
+                                                        color:
+                                                            Color(0xffb5c7a99),
+                                                        fontSize: 14))))),
                                 ],
                               )
                             : const Divider(
@@ -422,9 +460,9 @@ class _ConfigurationWidgetState extends State<ConfigurationWidget> {
                                 null
                             ? Row(
                                 children: const [
-                                  Text("Pièces d'usure pour godets",style: TextStyle(
-                                                  fontFamily: "Forza",
-                                                  fontSize: 18))
+                                  Text("Pièces d'usure pour godets",
+                                      style: TextStyle(
+                                          fontFamily: "Forza", fontSize: 18))
                                 ],
                               )
                             : const Divider(
@@ -445,9 +483,12 @@ class _ConfigurationWidgetState extends State<ConfigurationWidget> {
                                         flex: 1,
                                         child: Container(
                                             margin: const EdgeInsets.all(5.0),
-                                            child: Text(
-                                              item['lib'],
-                                              style: GoogleFonts.roboto( textStyle: const TextStyle(color: Color(0xffb5c7a99), fontSize: 14))))),
+                                            child: Text(item['lib'],
+                                                style: GoogleFonts.roboto(
+                                                    textStyle: const TextStyle(
+                                                        color:
+                                                            Color(0xffb5c7a99),
+                                                        fontSize: 14))))),
                                 ],
                               )
                             : const Divider(
@@ -460,9 +501,11 @@ class _ConfigurationWidgetState extends State<ConfigurationWidget> {
                                     ['Autres accessoires'] !=
                                 null
                             ? Row(
-                                children: const [Text("Autres accessoires",style: TextStyle(
-                                                  fontFamily: "Forza",
-                                                  fontSize: 18))],
+                                children: const [
+                                  Text("Autres accessoires",
+                                      style: TextStyle(
+                                          fontFamily: "Forza", fontSize: 18))
+                                ],
                               )
                             : const Divider(
                                 color: Colors.black,
@@ -482,9 +525,12 @@ class _ConfigurationWidgetState extends State<ConfigurationWidget> {
                                         flex: 1,
                                         child: Container(
                                             margin: const EdgeInsets.all(5.0),
-                                            child: Text(
-                                              item['lib'],
-                                              style: GoogleFonts.roboto( textStyle: const TextStyle(color: Color(0xffb5c7a99), fontSize: 14))))),
+                                            child: Text(item['lib'],
+                                                style: GoogleFonts.roboto(
+                                                    textStyle: const TextStyle(
+                                                        color:
+                                                            Color(0xffb5c7a99),
+                                                        fontSize: 14))))),
                                 ],
                               )
                             : const Divider(
@@ -496,9 +542,11 @@ class _ConfigurationWidgetState extends State<ConfigurationWidget> {
                         snapshot.data['configurateur']['options']['Nacelles'] !=
                                 null
                             ? Row(
-                                children: const [Text("Nacelles",style: TextStyle(
-                                                  fontFamily: "Forza",
-                                                  fontSize: 18))],
+                                children: const [
+                                  Text("Nacelles",
+                                      style: TextStyle(
+                                          fontFamily: "Forza", fontSize: 18))
+                                ],
                               )
                             : const Divider(
                                 color: Colors.black,
@@ -517,9 +565,12 @@ class _ConfigurationWidgetState extends State<ConfigurationWidget> {
                                         flex: 1,
                                         child: Container(
                                             margin: const EdgeInsets.all(5.0),
-                                            child: Text(
-                                              item['lib'],
-                                              style: GoogleFonts.roboto( textStyle: const TextStyle(color: Color(0xffb5c7a99), fontSize: 14))))),
+                                            child: Text(item['lib'],
+                                                style: GoogleFonts.roboto(
+                                                    textStyle: const TextStyle(
+                                                        color:
+                                                            Color(0xffb5c7a99),
+                                                        fontSize: 14))))),
                                 ],
                               )
                             : const Divider(
@@ -531,9 +582,11 @@ class _ConfigurationWidgetState extends State<ConfigurationWidget> {
                         snapshot.data['configurateur']['options']['Services'] !=
                                 null
                             ? Row(
-                                children: const [Text("Services",style: TextStyle(
-                                                  fontFamily: "Forza",
-                                                  fontSize: 18))],
+                                children: const [
+                                  Text("Services",
+                                      style: TextStyle(
+                                          fontFamily: "Forza", fontSize: 18))
+                                ],
                               )
                             : const Divider(
                                 color: Colors.black,
@@ -553,8 +606,12 @@ class _ConfigurationWidgetState extends State<ConfigurationWidget> {
                                         child: Container(
                                             margin: const EdgeInsets.all(5.0),
                                             child: Text(
-                                             _parseHtmlString(item['lib']),
-                                              style: GoogleFonts.roboto( textStyle: const TextStyle(color: Color(0xffb5c7a99), fontSize: 14))))),
+                                                _parseHtmlString(item['lib']),
+                                                style: GoogleFonts.roboto(
+                                                    textStyle: const TextStyle(
+                                                        color:
+                                                            Color(0xffb5c7a99),
+                                                        fontSize: 14))))),
                                 ],
                               )
                             : const Divider(
